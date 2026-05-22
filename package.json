@@ -1,16 +1,9 @@
-{
-  "name": "lab",
-  "version": "1.0.0",
-  "description": "A starter repository created with GitHub Copilot CLI.",
-  "main": "index.js",
-  "scripts": {
-    "test": "playwright test",
-    "test:headed": "playwright test --headed"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@playwright/test": "^1.60.0"
-  }
+﻿{
+    "private":  true,
+    "name":  "lab-root",
+    "version":  "1.0.0",
+    "scripts":  {
+                    "test:headed":  "npm --prefix playwright run test:headed",
+                    "test":  "npm --prefix playwright test"
+                }
 }
