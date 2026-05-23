@@ -1,13 +1,12 @@
-﻿# Testiny Skill
+﻿# Testiny Skill (updated)
 
-This skill provides a small PowerShell wrapper to call the Testiny API using a stored, encrypted token.
+Commands:
+- store-token <token>
+- list-projects
+- list-testcases [projectId] [testplanId]
+- print-curl
 
-Usage:
-- Store token (one-time):
-  .\scripts\testiny-skill.ps1 store-token <your-token>
-- List projects:
-  .\scripts\testiny-skill.ps1 list-projects
-
-Token storage:
-- Token is stored encrypted per-user at: $env:USERPROFILE\.testiny\token.txt
-- The token is NOT committed to the repository.
+Examples:
+- .\scripts\testiny-skill.ps1 list-testcases                # lists testcases for all projects
+- .\scripts\testiny-skill.ps1 list-testcases 1              # lists testcases for project id 1
+- .\scripts\testiny-skill.ps1 list-testcases 1 2            # lists testcases for project 1, testplan 2
