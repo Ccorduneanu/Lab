@@ -1,9 +1,0 @@
-﻿{
-    "private":  true,
-    "name":  "lab-root",
-    "version":  "1.0.0",
-    "scripts":  {
-                    "test:headed":  "npm --prefix playwright run test:headed",
-                    "test":  "npm --prefix playwright test"
-                }
-}
