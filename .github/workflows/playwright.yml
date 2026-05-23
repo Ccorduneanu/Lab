@@ -1,0 +1,32 @@
+﻿name: Playwright Smoke Tests
+
+on:
+  push:
+    branches: [ main ]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./playwright
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+        working-directory: ./playwright
+      - name: Run smoke tests
+        run: npm run test:smoke
+        working-directory: ./playwright
+      - name: Upload JUnit results
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-results
+          path: playwright/results/results.xml
+          if-no-files-found: warn
